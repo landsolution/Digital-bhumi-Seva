@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Land Service Bangladesh | স্মার্ট ভূমি সেবা</title>
-    <!-- Authentic Government Portal Fonts Import -->
+    <!-- Fonts Import -->
     <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
     <style>
-        /* Global & Theme Styles */
         :root {
             --gov-green: #006a4e;
             --gov-red: #da291c;
             --light-bg: #f4f7f6;
             --text-dark: #222222;
             --shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
+            --transition: all 0.2s ease-in-out;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,26 +35,23 @@
             color: #fff; 
             padding: 35px 15px; 
             text-align: center; 
-            position: relative; 
             border-bottom: 5px solid var(--gov-red); 
         }
         header h1 { 
             font-size: 36px; 
             font-weight: bold; 
-            letter-spacing: 0.5px; 
             margin-bottom: 8px; 
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
         }
         header p { 
             font-size: 19px; 
-            font-weight: normal; 
             opacity: 0.95; 
         }
 
         /* Container */
-        .main-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; position: relative; z-index: 1; }
+        .main-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
         
-        /* Stats Section for Authenticity */
+        /* Stats Section */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -111,8 +107,7 @@
             border-radius: 8px; 
             box-shadow: var(--shadow); 
             transition: var(--transition); 
-            border: 1.5px solid #dcdcdc; 
-            position: relative; 
+            border: 2px solid #dcdcdc; 
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
@@ -124,16 +119,18 @@
             box-shadow: 0 6px 18px rgba(0, 106, 78, 0.15); 
             border-color: var(--gov-green); 
         }
+        
+        /* Selected State */
         .service-card.selected { 
-            border-color: var(--gov-green); 
-            background-color: #f0fdf4; 
+            border-color: var(--gov-green) !important; 
+            background-color: #e8f5e9 !important; 
         }
 
-        .card-left { display: flex; align-items: center; gap: 14px; }
+        .card-left { display: flex; align-items: center; gap: 14px; pointer-events: none; }
         
         .custom-checkbox { 
-            width: 22px; 
-            height: 22px; 
+            width: 24px; 
+            height: 24px; 
             border: 2px solid var(--gov-green); 
             border-radius: 4px; 
             display: flex; 
@@ -142,10 +139,18 @@
             background: #fff; 
             transition: var(--transition); 
             flex-shrink: 0; 
+            font-weight: bold;
+            color: #fff;
+            font-size: 16px;
         }
-        .service-card.selected .custom-checkbox { background: var(--gov-green); }
-        .custom-checkbox::after { content: '✓'; color: #fff; font-size: 15px; font-weight: bold; display: none; }
-        .service-card.selected .custom-checkbox::after { display: block; }
+        
+        .service-card.selected .custom-checkbox { 
+            background: var(--gov-green); 
+        }
+        
+        .service-card.selected .custom-checkbox::after { 
+            content: '✓'; 
+        }
 
         .card-info { display: flex; flex-direction: column; }
         .card-title { font-size: 18px; font-weight: bold; color: #1a2530; line-height: 1.3; }
@@ -170,6 +175,7 @@
         .whatsapp-action-btn { 
             display: inline-flex; 
             align-items: center; 
+            justify-content: center;
             gap: 10px; 
             background-color: #25d366; 
             color: #fff; 
@@ -199,7 +205,6 @@
             border-radius: 8px;
             box-shadow: var(--shadow);
             border: 1px solid #e8e8e8;
-            position: relative;
         }
         .review-stars { color: #fbc02d; font-size: 18px; margin-bottom: 8px; }
         .review-text { font-size: 15px; color: #444; margin-bottom: 15px; font-style: italic; }
@@ -225,12 +230,11 @@
             right: 30px; 
             background-color: #25d366; 
             color: #fff; 
-            width: 62px; 
-            height: 62px; 
+            width: 60px; 
+            height: 60px; 
             border-radius: 50%; 
-            text-align: center; 
             box-shadow: 2px 4px 12px rgba(0,0,0,0.25); 
-            z-index: 100; 
+            z-index: 999; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -302,7 +306,7 @@
 
         <div class="service-grid">
             <!-- Service Items -->
-            <div class="service-card" onclick="toggleService(this, '১. খারিজের আবেদন (৳ ৫০০)')">
+            <div class="service-card" data-service="১. খারিজের আবেদন (৳ ৫০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -312,7 +316,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '২. অনলাইন খতিয়ান তোলা (৳ ১৭০)')">
+            <div class="service-card" data-service="২. অনলাইন খতিয়ান তোলা (৳ ১৭০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -322,7 +326,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৩. খাজনার আবেদন (৳ ১০০)')">
+            <div class="service-card" data-service="৩. খাজনার আবেদন (৳ ১০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -332,7 +336,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৪. ম্যাপ আবেদন (৳ ৫০০)')">
+            <div class="service-card" data-service="৪. ম্যাপ আবেদন (৳ ৫০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -342,7 +346,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৫. নামজারি খতিয়ানের সার্টিফাইড কপি (৳ ৩,৫০০)')">
+            <div class="service-card" data-service="৫. নামজারি খতিয়ানের সার্টিফাইড কপি (৳ ৩,৫০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -352,7 +356,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৬. মিসকেস আবেদন (৳ ৫০০)')">
+            <div class="service-card" data-service="৬. মিসকেস আবেদন (৳ ৫০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -362,7 +366,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৭. ম্যাপ পেন্টাগ্রাফ (৳ ৭০০)')">
+            <div class="service-card" data-service="৭. ম্যাপ পেন্টাগ্রাফ (৳ ৭০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -372,7 +376,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৮. প্লট বা দাগ পরিমাপ বের করা (৳ ৩০০)')">
+            <div class="service-card" data-service="৮. প্লট বা দাগ পরিমাপ বের করা (৳ ৩০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -382,7 +386,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '৯. নাম বা দাগ নম্বর দিয়ে জমির তথ্য বের করা (৳ ১০০)')">
+            <div class="service-card" data-service="৯. নাম বা দাগ নম্বর দিয়ে জমির তথ্য বের করা (৳ ১০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -392,7 +396,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '১০. খতিয়ান বিশ্লেষণ (৳ ৩০০)')">
+            <div class="service-card" data-service="১০. খতিয়ান বিশ্লেষণ (৳ ৩০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -402,7 +406,7 @@
                 </div>
             </div>
 
-            <div class="service-card" onclick="toggleService(this, '১১. আইনি পরামর্শ (৳ ৫০০)')">
+            <div class="service-card" data-service="১১. আইনি পরামর্শ (৳ ৫০০)">
                 <div class="card-left">
                     <div class="custom-checkbox"></div>
                     <div class="card-info">
@@ -416,7 +420,7 @@
         <div class="contact-panel">
             <h2>নির্বাচিত সেবা নিয়ে সরাসরি কথা বলুন</h2>
             <p>উপরে আপনার পছন্দমতো সেবায় টিক চিহ্ন দিয়ে নিচের বাটনে ক্লিক করুন।</p>
-            <button onclick="sendToWhatsApp()" class="whatsapp-action-btn">
+            <button id="mainWhatsappBtn" class="whatsapp-action-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 0 3.627 0 7.994c0 1.54.445 3.01 1.286 4.367L0 16l4.208-1.102a7.865 7.865 0 0 0 3.79.948h.004c4.368 0 7.994-3.627 7.994-7.994a7.854 7.854 0 0 0-2.395-5.669zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.585-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c0 3.626-2.957 6.584-6.584 6.584zm3.951-4.711c-.217-.109-1.283-.634-1.482-.707-.198-.073-.342-.109-.487.109-.145.218-.563.707-.69.833-.127.127-.254.144-.471.036-.217-.109-.917-.338-1.748-1.079-.647-.578-1.084-1.292-1.211-1.509-.127-.217-.014-.335.094-.443.099-.099.217-.254.326-.382.109-.128.145-.218.217-.363.072-.145.036-.273-.018-.382-.055-.109-.487-1.173-.667-1.606-.176-.425-.37-.367-.487-.373-.113-.005-.244-.006-.375-.006-.131 0-.345.05-.525.218-.18.198-.69.674-.69 1.644 0 0 0 1.64 1.114 3.016 3.016 0 0 1 1.052 2.44c1.908 1.912 2.784 2.375 3.427 2.609.643.234 1.282.203 1.748.136.521-.078 1.283-.524 1.465-1.03.181-.506.181-.941.127-1.03-.054-.089-.198-.127-.415-.236z"/>
                 </svg>
@@ -467,6 +471,11 @@
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <button onclick="sendToWhatsApp()" class="whatsapp-float" title="হোয়াটসঅ্যাপে যোগাযোগ করুন">
+    <button id="floatWhatsappBtn" class="whatsapp-float" title="হোয়াটসঅ্যাপে যোগাযোগ করুন">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 0 3.627 0 7.994c0 1.54.445 3.01 1.286 4.367L0 16l4.208-1.102a7.865 7.865 0 0 0 3.79.948h.004c4.368 0 7.994-3.627 7.994-7.994a7.854 7.854 0 0 0-2.395-5.669zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.585-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c0 3.626-2.957 6.584-6.584 6.584zm3.951-4.711c-.217-.109-1.283-.634-1.482-.707-.198-.073-.342-.109-.487.109-.145.218-.563.707-.69.833-.127.127-.254.144-.471.036-.217-.109-.917-.338-1.748-1.079-.647-.578-1.084-1.292-1.211-1.509-.127-.217-.014-.335.094-.443.099-.099.217-.254.326-.382.109-.128.145-.218.217-.363.072-.145.036-.273-.018-.382-.055-.109-.487-1.173-.667-1.606-.
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 0 3.627 0 7.994c0 1.54.445 3.01 1.286 4.367L0 16l4.208-1.102a7.865 7.865 0 0 0 3.79.948h.004c4.368 0 7.994-3.627 7.994-7.994a7.854 7.854 0 0 0-2.395-5.669zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.585-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c0 3.626-2.957 6.584-6.584 6.584zm3.951-4.711c-.217-.109-1.283-.634-1.482-.707-.198-.073-.342-.109-.487.109-.145.218-.563.707-.69.833-.127.127-.254.144-.471.036-.217-.109-.917-.338-1.748-1.079-.647-.578-1.084-1.292-1.211-1.509-.127-.217-.014-.335.094-.443.099-.099.217-.254.326-.382.109-.128.145-.218.217-.363.072-.145.036-.273-.018-.382-.055-.109-.487-1.173-.667-1.606-.176-.425-.37-.367-.487-.373-.113-.005-.244-.006-.375-.006-.131 0-.345.05-.525.218-.18.198-.69.674-.69 1.644 0 0 0 1.64 1.114 3.016 3.016 0 0 1 1.052 2.44c1.908 1.912 2.784 2.375 3.427 2.609.643.234 1.282.203 1.748.136.521-.078 1.283-.524 1.465-1.03.181-.506.181-.941.127-1.03-.054-.089-.198-.127-.415-.236z"/>
+        </svg>
+    </button>
+
+    <footer>
+        <p>© ২০
