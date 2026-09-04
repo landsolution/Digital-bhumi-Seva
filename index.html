@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Land Service Bangladesh | স্মার্ট ভূমি সেবা</title>
+    <style>
+        /* Global & Theme Styles */
+        :root {
+            --gov-green: #006a4e;
+            --gov-red: #da291c;
+            --light-bg: #f3fdf9;
+            --text-dark: #2c3e50;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', 'AdorshoLipi', Arial, sans-serif; }
+        body { background-color: var(--light-bg); color: var(--text-dark); overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Unique Header */
+        header { background: linear-gradient(135deg, var(--gov-green) 0%, #004d39 100%); color: #fff; padding: 40px 15px; text-align: center; position: relative; border-bottom: 5px solid var(--gov-red); }
+        header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23ffffff" fill-opacity="0.03"><path d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43 0c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 35c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57 43c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM80 10c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM9 10c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm81 32c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM9 42c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM11 60c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm1 10c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm81 10c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM9 70c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z"/></g></svg>'); }
+        header h1 { font-size: 36px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        header p { font-size: 18px; font-weight: 300; opacity: 0.9; }
+
+        /* Container & Grid */
+        .main-container { max-width: 1200px; margin: 50px auto; padding: 0 20px; position: relative; z-index: 1; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-bottom: 60px; }
+
+        /* Authentic Service Cards */
+        .service-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #e0eee0; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0, 106, 78, 0.12); border-color: var(--gov-green); }
+        .service-card::before { content: '✓'; position: absolute; top: -15px; right: -15px; background: rgba(0, 106, 78, 0.05); color: #fff; width: 60px; height: 60px; border-radius: 50%; font-size: 30px; line-height: 70px; text-align: center; font-weight: bold; transition: var(--transition); }
+        .service-card:hover::before { background: var(--gov-green); }
+        
+        .card-header { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .card-icon { width: 40px; height: 40px; background: var(--light-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gov-green); font-size: 20px; border: 2px solid rgba(0, 106, 78, 0.1); }
+        .card-title { font-size: 19px; font-weight: 700; color: #1a2530; line-height: 1.3; }
+        
+        .card-price-tag { display: inline-block; background: linear-gradient(90deg, #f3fdf9 0%, #e0eee0 100%); color: var(--gov-green); font-weight: 800; font-size: 18px; padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(0, 106, 78, 0.2); margin-top: 15px; }
+        .card-price-tag span { font-size: 14px; opacity: 0.8; font-weight: 400; }
+
+        /* Main Contact Section */
+        .contact-panel { background: #fff; padding: 40px; border-radius: 12px; box-shadow: var(--shadow); text-align: center; border-left: 8px solid var(--gov-red); margin-bottom: 80px; }
+        .contact-panel h2 { font-size: 26px; color: var(--gov-green); margin-bottom: 15px; font-weight: 700; }
+        .contact-panel p { font-size: 16px; margin-bottom: 25px; color: #555; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #fff; width: 70px; height: 70px; border-radius: 50%; text-align: center; font-size: 35px; box-shadow: 2px 4px 15px rgba(0,0,0,0.2); z-index: 100; display: flex; align-items: center; justify-content: center; transition: var(--transition); animation: pulse 2s infinite; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Footer */
+        footer { background: #2c3e50; color: #fff; text-align: center; padding: 30px 15px; font-size: 15px; opacity: 0.9; }
+        .gov-logos { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; font-size: 12px; opacity: 0.7; }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            header h1 { font-size: 28px; }
+            header p { font-size: 16px; }
+            .service-grid { grid-template-columns: 1fr; }
+            .contact-panel { padding: 30px; }
+            .whatsapp-float { width: 60px; height: 60px; font-size: 30px; bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart Land Service</h1>
+        <p>সহজ ও বিশ্বস্ত ডিজিটাল ভূমি সেবা পোর্টাল</p>
+    </header>
+
+    <div class="main-container">
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">1</div><div class="card-title">খারিজের আবেদন (Mutation)</div></div>
+                <div class="card-price-tag">৳ ৫০০ <span>/ আবেদন ফি</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">2</div><div class="card-title">অনলাইন খতিয়ান তোলা (e-Khotian)</div></div>
+                <div class="card-price-tag">৳ ১৭০ <span>/ কপি</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">3</div><div class="card-title">ভূমি উন্নয়ন কর (খাজনা) আবেদন</div></div>
+                <div class="card-price-tag">৳ ১০০ <span>/ আবেদন ফি</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">4</div><div class="card-title">ডিজিটাল মৌজা ম্যাপ আবেদন</div></div>
+                <div class="card-price-tag">৳ ৫০০ <span>/ ম্যাপ</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">5</div><div class="card-title">নামজারি খতিয়ানের সার্টিফাইড কপি</div></div>
+                <div class="card-price-tag">৳ ৩,৫০০ <span>/ সম্পূর্ণ খরচ</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">6</div><div class="card-title">ভূমি মিসকেস (Miscase) আবেদন</div></div>
+                <div class="card-price-tag">৳ ৫০০ <span>/ আবেদন ফি</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">7</div><div class="card-title">ম্যাপ পেন্টাগ্রাফ (Pentagraph Map)</div></div>
+                <div class="card-price-tag">৳ ৭০০ <span>/ কপি</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">8</div><div class="card-title">প্লট বা দাগ পরিমাপ বের করা</div></div>
+                <div class="card-price-tag">৳ ৩০০ <span>/ দাগ</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">9</div><div class="card-title">নাম বা দাগ দিয়ে জমির তথ্য বের করা</div></div>
+                <div class="card-price-tag">৳ ১০০ <span>/ তথ্য</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">10</div><div class="card-title">খতিয়ান বিশ্লেষণ ও যাচাই</div></div>
+                <div class="card-price-tag">৳ ৩০০ <span>/ খতিয়ান</span></div>
+            </div>
+            <div class="service-card">
+                <div class="card-header"><div class="card-icon">11</div><div class="card-title">ভূমি বিষয়ক আইনি পরামর্শ</div></div>
+                <div class="card-price-tag">৳ ৫০০ <span>/ পরামর্শ</span></div>
+            </div>
+        </div>
+
+        <div class="contact-panel">
+            <h2>জরুরি সহায়তা প্রয়োজন?</h2>
+            <p>আপনার জমি সংক্রান্ত যেকোনো সমস্যা বা অনলাইন আবেদনের জন্য সরাসরি আমাদের বিশেষজ্ঞের সাথে হোয়াটসঅ্যাপে কথা বলুন।</p>
+            <p style="font-weight: bold; color: #1a2530;">আমরা ২৪/৭ সক্রিয় আছি।</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/8801335556732?text=আসসালামু%20আলাইকুম,%20আমি%20আপনার%20ডিজিটাল%20ভূমি%20সেবা%20ওয়েবসাইট%20থেকে%20যোগাযোগ%20করছি।%20আমার%20একটি%20পরামর্শ/সেবা%20প্রয়োজন।" class="whatsapp-float" target="_blank" title="হোয়াটসঅ্যাপে যোগাযোগ করুন">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 0 3.627 0 7.994c0 1.54.445 3.01 1.286 4.367L0 16l4.208-1.102a7.865 7.865 0 0 0 3.79.948h.004c4.368 0 7.994-3.627 7.994-7.994a7.854 7.854 0 0 0-2.395-5.669zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.585-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c0 3.626-2.957 6.584-6.584 6.584zm3.951-4.711c-.217-.109-1.283-.634-1.482-.707-.198-.073-.342-.109-.487.109-.145.218-.563.707-.69.833-.127.127-.254.144-.471.036-.217-.109-.917-.338-1.748-1.079-.647-.578-1.084-1.292-1.211-1.509-.127-.217-.014-.335.094-.443.099-.099.217-.254.326-.382.109-.128.145-.218.217-.363.072-.145.036-.273-.018-.382-.055-.109-.487-1.173-.667-1.606-.176-.425-.37-.367-.487-.373-.113-.005-.244-.006-.375-.006-.131 0-.345.05-.525.218-.18.198-.69.674-.69 1.644 0 0 0 1.64 1.114 3.016 3.016 0 0 1 1.052 2.44c1.908 1.912 2.784 2.375 3.427 2.609.643.234 1.282.203 1.748.136.521-.078 1.283-.524 1.465-1.03.181-.506.181-.941.127-1.03-.054-.089-.198-.127-.415-.236z"/>
+        </svg>
+    </a>
+
+    <footer>
+        <div class="gov-logos">Bangladesh Land Service Agency | Authorized Private Consultant</div>
+        <p>© ২০২৬ স্মার্ট ভূমি সেবা | সর্বস্বত্ব সংরক্ষিত</p>
+    </footer>
+
+</body>
+  </html>
+  
